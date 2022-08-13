@@ -1,3 +1,4 @@
+// import styles from './PrimaryLayout.module.scss'
 import Head from 'next/head';
 
 export interface IPrimaryLayout extends React.ComponentPropsWithoutRef<'div'> {
@@ -15,7 +16,7 @@ const PrimaryLayout: React.FC<IPrimaryLayout> = ({
         <title>Christian Neighbors</title>
       </Head>
       <div {...divProps} className={`min-h-screen bg-blue-500 flex flex-col ${justify}`}>
-        <main className="w-full">{children}</main>
+        <main className=''>{children}</main>
       </div>
     </>
   );

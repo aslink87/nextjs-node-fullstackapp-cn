@@ -5,7 +5,6 @@ import { mockBaseTemplateProps } from './BaseTemplate.mocks';
 export default {
   title: 'templates/BaseTemplate',
   component: BaseTemplate,
-  id: 'base',
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
 } as ComponentMeta<typeof BaseTemplate>;
