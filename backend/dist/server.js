@@ -12,7 +12,17 @@ const port = process.env.PORT;
 app.get('/', (req, res) => {
     res.send('Express + TypeScript Server Hello Mom');
 });
+app.get("/api/", (req, res) => res.send("INDEX"));
+// Error handling - Not sure if this works
+app.use((err, req, res, next) => {
+    console.log(err);
+    const status = res.statusCode || 500;
+    const message = err.message;
+    const data = err.name;
+    res.status(status).json({ message: message, data: data });
+});
+console.log("Environment is " + process.env.NODE_ENV);
 app.listen(port, () => {
-    console.log(`[server]: Server is running at https://localhost:${port}`);
+    console.log(`[server]: 🚀 Server is running at https://localhost:${port}`);
 });
 //# sourceMappingURL=server.js.map

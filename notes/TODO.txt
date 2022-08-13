@@ -1,1 +1,3 @@
-update readme
+WIP update readme
+Setup Prisma in Backend
+Connect Backend to mongodb
