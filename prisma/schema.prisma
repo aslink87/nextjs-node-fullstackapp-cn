@@ -17,3 +17,12 @@ model hero {
   link String?
   video String?
 }
+
+model news {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  index Int @unique
+  title String
+  content String
+  link String?
+  video String?
+}
