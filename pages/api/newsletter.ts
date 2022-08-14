@@ -70,7 +70,6 @@ export default async function handler(
 
   //TODO: add formData validation
   if (req.method === 'POST') {
-    console.log(req)
     addNewsletter()
   } else {
     return res.status(400).json('Unable to update Newsletters')

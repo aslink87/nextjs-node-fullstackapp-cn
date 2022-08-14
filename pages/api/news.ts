@@ -23,7 +23,7 @@ export default async function handler(
       }
     }).catch((e) => {
       console.log(e)
-      return res.status(500).json('Update Error')
+      return res.status(500).json({ message: 'Error updating Database' })
     })
     return res.status(200).json(news)
   }
@@ -32,6 +32,6 @@ export default async function handler(
   if (req.method === 'POST' && req.body.title.length >= 3 && req.body.content.length > 5) {
     updateNews()
   } else {
-    return res.status(400).json('Unable to update News post')
+    return res.status(400).json({ message: 'Unable to update News post' })
   }
 }

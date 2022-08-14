@@ -42,3 +42,9 @@ model calendar {
   link String?
   video String?
 }
+
+model suppers {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  index Int @unique
+  doc String
+}

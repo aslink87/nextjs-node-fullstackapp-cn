@@ -22,3 +22,10 @@ export interface ICalendar {
   link?: string,
   video?: string
 }
+
+export interface ISupper {
+  id: string,
+  formData: {
+    doc: string
+  }
+}
