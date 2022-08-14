@@ -21,6 +21,9 @@ export default async function handler(
         link: req.body.link,
         video: req.body.video
       }
+    }).catch((e) => {
+      console.log(e)
+      return res.status(500).json('Update Error')
     })
     return res.status(200).json(news)
   }
