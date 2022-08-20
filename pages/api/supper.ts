@@ -28,6 +28,7 @@ export default async function handler(
           doc: pathFile,
         }
       })
+      res.status(200).json({ message: 'File Uploaded Successfully' })
     } catch (error) {
       return res.status(500).json({ message: 'Error updating server with new image' })
     }
@@ -39,10 +40,10 @@ export default async function handler(
         uploadDir: './uploads'
       }
 
-      // parse incoming document and return result and filepath to pass on to prismaHandler
+      // parse incoming document and return filepath to pass on to prismaHandler
       const form = new formidable.IncomingForm(options);
       let pathFile = ""
-      const result = await new Promise(function(resolve, reject) {
+      await new Promise(function(resolve, reject) {
         form.parse(req, (error, field, file) => {
           if (error) {
             res.status(500).json({ message: 'Error parsing file' });
@@ -54,14 +55,7 @@ export default async function handler(
           resolve({ file, field })
         })
       })
-
-      //TODO: update if condition, this may be unnecessary.
-      if (!req) {
-        return res.status(400).json({ message: 'Error uploading Supper Image' })
-      } else {
-        res.json(result)
-        prismaHandler(pathFile)
-      }
+      prismaHandler(pathFile)
     }
     catch (error) {
       console.log(error)
@@ -70,11 +64,10 @@ export default async function handler(
 
   }
 
-  //TODO: add formData validation
   if (req.method === 'POST') {
     addNewsletter()
   } else {
-    return res.status(400).json('Unable to update Newsletters')
+    return res.status(400).json({ message: 'Unable to update Newsletters' })
   }
 }
 
