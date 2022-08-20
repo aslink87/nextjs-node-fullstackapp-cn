@@ -3,7 +3,7 @@ import prisma from '../../lib/prisma'
 import { IPdf } from '../../lib/types';
 import formidable from 'formidable';
 
-interface ISupperData extends NextApiRequest {
+interface IPantryCalendar extends NextApiRequest {
   body: IPdf
 }
 
@@ -15,14 +15,14 @@ export const config = {
 }
 
 export default async function handler(
-  req: ISupperData,
+  req: IPantryCalendar,
   res: NextApiResponse
 ) {
 
   // prismaHandler updates DB object values including new filePath
   const prismaHandler = async (pathFile: string) => {
     try {
-      await prisma.suppers.update({
+      await prisma.pantrycalendar.update({
         where: { index: 1 },
         data: {
           doc: pathFile,
@@ -34,7 +34,7 @@ export default async function handler(
     }
   }
 
-  const addNewsletter = async () => {
+  const addPDF = async () => {
     try {
       const options = {
         uploadDir: './uploads'
@@ -65,9 +65,9 @@ export default async function handler(
   }
 
   if (req.method === 'POST') {
-    addNewsletter()
+    addPDF()
   } else {
-    return res.status(400).json({ message: 'Unable to update Newsletters' })
+    return res.status(400).json({ message: 'Unable to update Pantry Calendar' })
   }
 }
 

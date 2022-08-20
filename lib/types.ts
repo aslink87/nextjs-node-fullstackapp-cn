@@ -23,7 +23,7 @@ export interface ICalendar {
   video?: string
 }
 
-export interface ISupper {
+export interface IPdf {
   id: string,
   formData: {
     doc: string
