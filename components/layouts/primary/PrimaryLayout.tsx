@@ -15,7 +15,7 @@ const PrimaryLayout: React.FC<IPrimaryLayout> = ({
       <Head>
         <title>Christian Neighbors</title>
       </Head>
-      <div {...divProps} className={`min-h-screen bg-blue-500 flex flex-col ${justify}`}>
+      <div {...divProps} className={`min-h-screen bg-blue-900 flex flex-col ${justify}`}>
         <main className=''>{children}</main>
       </div>
     </>

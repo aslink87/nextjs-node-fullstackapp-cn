@@ -29,3 +29,12 @@ export interface ISupper {
     doc: string
   }
 }
+
+export interface IBlog {
+  id: string,
+  date: string,
+  title: string,
+  content: string,
+  link?: string,
+  img?: string
+}

@@ -11,13 +11,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model hero {
-  id String  @id @default(auto()) @map("_id") @db.ObjectId
-  content String
-  link String?
-  video String?
-}
-
+// Home page hero component
 model news {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   index Int @unique
@@ -27,6 +21,7 @@ model news {
   video String?
 }
 
+// Newsletter pdf component
 model newsletter {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   date String
@@ -34,6 +29,7 @@ model newsletter {
   doc String
 }
 
+// Calendar news component
 model calendar {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   index Int @unique
@@ -43,8 +39,19 @@ model calendar {
   video String?
 }
 
+// Soup Suppers image component
 model suppers {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   index Int @unique
   doc String
+}
+
+// Blog component
+model blog {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  date String
+  title String
+  content String
+  img String?
+  link String?
 }
