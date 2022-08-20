@@ -3,7 +3,6 @@
 
 generator client {
   provider = "prisma-client-js"
-  previewFeatures = ["mongoDb"]
 }
 
 datasource db {
@@ -58,6 +57,13 @@ model blog {
 
 // Pantry Calendar component
 model pantrycalendar {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  index Int @unique
+  doc String
+}
+
+// News Item component
+model newsitem {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   index Int @unique
   doc String
