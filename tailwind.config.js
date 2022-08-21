@@ -21,10 +21,14 @@ module.exports = {
         blue: {
           500: '#1a73e8',
         },
+        'cn-blue': '#003768'
       },
       spacing: {
         128: '32rem',
       },
+      backgroundImage: {
+        'office': "url('./public/background.jpg)"
+      }
     },
   },
   plugins: [require('@tailwindcss/forms')],
