@@ -23,13 +23,18 @@ export default async function handler(
 
   // prismaHandler updates DB object values including new date, title, and filePath
   const prismaHandler = async (result: any, pathFile: string) => {
-    await prisma.newsletter.create({
-      data: {
-        title: result.field.title,
-        doc: pathFile,
-        date: new Date().toISOString().split('T')[0]
-      }
-    })
+    try {
+      await prisma.newsletter.create({
+        data: {
+          title: result.field.title,
+          doc: pathFile,
+          date: new Date().toISOString().split('T')[0]
+        }
+      })
+      res.status(200).json({ message: 'File Uploaded Successfully' })
+    } catch (error) {
+      return res.status(500).json({ message: 'Error updating server with new image' })
+    }
   }
   const addNewsletter = async () => {
     try {
@@ -53,13 +58,7 @@ export default async function handler(
         })
       })
 
-      //TODO: update if condition, this may be unnecessary.
-      if (!req) {
-        return res.status(400).json({ message: 'Error uploading Newsletter' })
-      } else {
-        res.json(result)
-        prismaHandler(result, pathFile)
-      }
+      prismaHandler(result, pathFile)
     }
     catch (error) {
       console.log(error)
@@ -68,7 +67,6 @@ export default async function handler(
 
   }
 
-  //TODO: add formData validation
   if (req.method === 'POST') {
     addNewsletter()
   } else {

@@ -1,10 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import prisma from '../../lib/prisma'
-import { IPdf } from '../../lib/types';
+import { IImage } from '../../lib/types';
 import formidable from 'formidable';
 
 interface INewsItemData extends NextApiRequest {
-  body: IPdf
+  body: IImage
 }
 
 // turn off body parser so that formData is consumed properly
@@ -59,7 +59,7 @@ export default async function handler(
     }
     catch (error) {
       console.log(error)
-      return res.status(500).send('Upload Error' + error)
+      return res.status(500).send({ message: 'Upload Error' + error })
     }
 
   }

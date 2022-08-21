@@ -84,3 +84,10 @@ model needs {
   item8 String?
   item9 String?
 }
+
+// Testimonies Item component
+model testimonies {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  doc String
+  content String
+}

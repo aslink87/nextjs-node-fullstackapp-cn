@@ -23,7 +23,7 @@ export interface ICalendar {
   video?: string
 }
 
-export interface IPdf {
+export interface IImage {
   id: string,
   formData: {
     doc: string
@@ -51,4 +51,12 @@ export interface INeeds {
   item7?: string,
   item8?: string,
   item9?: string,
+}
+
+export interface ITestimonies {
+  id: string,
+  formData: {
+    doc: string,
+    content: string
+  }
 }
