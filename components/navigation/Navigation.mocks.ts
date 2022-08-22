@@ -1,9 +1,13 @@
-import { INavigationTemplate } from './Navigation';
+import { INavItems } from './Navigation';
 
-const base: INavigationTemplate = {
-  sampleTextProp: 'Hello world!',
+const base: INavItems = {
+  'id': 'about',
+  'text': 'About',
+  'link': '/about',
+  'isAuth': false,
+  'mobile': false
 };
 
-export const mockBaseTemplateProps = {
+export const mockBaseNavProps = {
   base,
 };
