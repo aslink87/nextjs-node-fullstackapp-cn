@@ -1,3 +1,75 @@
-.container {
-  background-color: white;
+@import '../../styles/variables.module.scss';
+
+.nav {
+  padding: 0 1em;
+  width: 100%;
+  position: fixed;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  background-color: $white;
+  color: $dark-blue;
+  height: 4rem;
+  border-bottom: 3px solid $dark-blue;
+  z-index: 200;
+
+  a {
+    text-decoration: none;
+    color: $dark-blue;
+  }
+}
+
+.logo {
+  width: 70px;
+  height: 4rem;
+  margin: auto 0;
+}
+
+.spacer {
+  width: 8rem;
+}
+
+.branding {
+  h1 {
+    font-size: 1.8em;
+    display: inline-block;
+  }
+}
+.brandingSecondary {
+  margin-left: .3em;
+  color: $yellow;
+}
+.navItems {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 50%;
+  justify-content: flex-end;
+
+  li {
+    box-sizing: border-box;
+    text-align: center;
+
+    Link {
+      &:hover {
+        border-bottom: solid 2px $dark-blue;
+      }
+
+    }
+
+
+    a{
+      margin: auto 1em;
+      font-size: 1.2rem;
+
+      &:hover {
+        border-bottom: solid 2px $yellow;
+      }
+
+      &:active {
+        border-bottom: solid 2px $dark-blue;
+      }
+    }
+  }
 }
