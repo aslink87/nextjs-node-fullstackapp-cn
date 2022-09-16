@@ -37,7 +37,7 @@
   }
 }
 .brandingSecondary {
-  margin-left: .3em;
+  margin-left: 0.3em;
   color: $yellow;
 }
 .navItems {
@@ -55,11 +55,9 @@
       &:hover {
         border-bottom: solid 2px $dark-blue;
       }
-
     }
 
-
-    a{
+    a {
       margin: auto 1em;
       font-size: 1.2rem;
 

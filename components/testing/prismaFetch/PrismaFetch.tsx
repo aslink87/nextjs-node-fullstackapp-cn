@@ -1,25 +1,21 @@
-import React from "react";
+import React from 'react';
 
 export interface Hero {
-  id?: string,
-  content?: string
+  id?: string;
+  content?: string;
 }
 
 export interface IPrismaPlaygroundProps {
-  heroes: Hero[]
+  heroes: Hero[];
 }
 
 const PrismaFetch: React.FC<IPrismaPlaygroundProps> = (props) => {
   return (
     <>
       <ul>
-        {
-          props.heroes.map((hero) => {
-            return (
-              <li key={hero.id}>{hero.content}</li>
-            )
-          })
-        }
+        {props.heroes.map((hero) => {
+          return <li key={hero.id}>{hero.content}</li>;
+        })}
       </ul>
     </>
   );

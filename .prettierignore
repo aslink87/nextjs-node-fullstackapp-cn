@@ -1,3 +1,7 @@
 .next
 dist
 node_modules
+__tests__
+*.css
+*.scss
+*.md

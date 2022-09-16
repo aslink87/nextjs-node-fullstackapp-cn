@@ -2,21 +2,21 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['i.pravatar.cc'],
+    domains: ['www.christianneighbors.org'],
   },
 };
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true'
-})
+  enabled: process.env.ANALYZE === 'true',
+});
 
-const path = require('path')
+const path = require('path');
 
 module.exports = withBundleAnalyzer(nextConfig);
 
 module.exports = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
-    prependData: `@import "variables.module.scss";`
-  }
-}
+    prependData: `@import "variables.module.scss";`,
+  },
+};

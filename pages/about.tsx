@@ -1,11 +1,9 @@
 import PrimaryLayout from '../components/layouts/primary/PrimaryLayout';
-import { NextPageWithLayout } from './page'
+import { NextPageWithLayout } from './page';
 
 const About: NextPageWithLayout = () => {
-  return (
-    <h1 className="">Hello Mom</h1>
-  )
-}
+  return <h1 className="">Hello Mom</h1>;
+};
 
 export default About;
 
