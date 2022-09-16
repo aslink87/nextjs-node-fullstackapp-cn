@@ -18,7 +18,6 @@ export default async function handler(
   req: ITestimoniesData,
   res: NextApiResponse
 ) {
-  let context = 'new';
   // prismaNewHandler adds new testimony to DB
   const prismaNewHandler = async (result: any, pathFile: string) => {
     try {
@@ -28,6 +27,7 @@ export default async function handler(
           doc: pathFile,
         },
       });
+      return res.status(200).json({ message: 'File Uploaded Successfully' });
     } catch (error) {
       return res
         .status(500)
@@ -64,11 +64,12 @@ export default async function handler(
       const form = new formidable.IncomingForm(options);
       let pathFile = '';
       // eslint-disable-next-line prettier/prettier
-      const result = await new Promise(function(resolve, reject) {
+      const result = await new Promise(function(resolve) {
         form.parse(req, (error, field, file) => {
           if (error) {
-            res.status(500).json({ message: 'Error parsing file' });
-            return reject(error);
+            return res
+              .status(500)
+              .json({ message: 'Error parsing file' + error });
           }
           const path: any = file[Object.keys(file)[0]];
           let filepath = path.filepath;
@@ -76,6 +77,7 @@ export default async function handler(
           resolve({ file, field });
         });
       });
+
       if (context === 'new') {
         console.log('new testimony');
         prismaNewHandler(result, pathFile);
@@ -92,7 +94,7 @@ export default async function handler(
   //TODO: figure out how to destructure the formData from the frontend and pass the ID to update and delete handlers,
   // update if logic where possible
   if (req.method === 'POST') {
-    handleTestimony(context);
+    handleTestimony('new');
   } else if (req.method === 'PUT') {
     // let context = 'update';
     console.log('update');

@@ -46,7 +46,9 @@ export default async function handler(
       let pathFile = '';
       form.parse(req, (error, file) => {
         if (error) {
-          return res.status(500).json({ message: 'Error parsing file' });
+          return res
+            .status(500)
+            .json({ message: 'Error parsing file' + error });
         }
         const path: any = file[Object.keys(file)[0]];
         let filepath = path.filepath;
