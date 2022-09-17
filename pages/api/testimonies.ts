@@ -19,15 +19,15 @@ export default async function handler(
   res: NextApiResponse
 ) {
   // prismaNewHandler adds new testimony to DB
-  const prismaNewHandler = async (result: any, pathFile: string) => {
+  const prismaNewHandler = async (content: string, pathFile: string) => {
     try {
       await prisma.testimonies.create({
         data: {
-          content: result.field.content,
+          content,
           doc: pathFile,
         },
       });
-      return res.status(200).json({ message: 'File Uploaded Successfully' });
+      // return res.status(200).json({ message: 'File Uploaded Successfully' });
     } catch (error) {
       return res
         .status(500)
@@ -36,8 +36,7 @@ export default async function handler(
   };
 
   // prismaUpdateHandler updates existing testimony in DB
-  const prismaUpdateHandler = async (result: any, pathFile: string) => {
-    console.log(result);
+  const prismaUpdateHandler = async (content: string, pathFile: string) => {
     try {
       await prisma.testimonies.update({
         where: { id: '1' },
@@ -54,51 +53,43 @@ export default async function handler(
     }
   };
 
-  const handleTestimony = async (context: string) => {
-    try {
-      const options = {
-        uploadDir: './uploads',
-      };
+  const handleTestimony = (context: string) => {
+    const options = {
+      uploadDir: './uploads',
+      keepExtensions: true,
+    };
 
-      // parse incoming document and return result and filepath to pass on to prismaHandler
-      const form = new formidable.IncomingForm(options);
-      let pathFile = '';
-      // eslint-disable-next-line prettier/prettier
-      const result = await new Promise(function(resolve) {
-        form.parse(req, (error, field, file) => {
-          if (error) {
-            return res
-              .status(500)
-              .json({ message: 'Error parsing file' + error });
-          }
-          const path: any = file[Object.keys(file)[0]];
-          let filepath = path.filepath;
-          pathFile = filepath;
-          resolve({ file, field });
-        });
-      });
+    // parse incoming document and get content and filepath to pass on to prismaHandler
+    const form = new formidable.IncomingForm(options);
+    let pathFile = '';
 
-      if (context === 'new') {
-        console.log('new testimony');
-        prismaNewHandler(result, pathFile);
-      } else if (context === 'update') {
-        prismaUpdateHandler(result, pathFile);
-        console.log('update testimony');
+    form.parse(req, (err, fields, files) => {
+      if (err) {
+        return res.status(500).json({ message: 'Error parsing file' });
+      } else {
+        const path: any = files[Object.keys(files)[0]];
+        let filepath = path.filepath;
+        pathFile = filepath;
+        const content: string = fields[Object.keys(fields)[0]] as string;
+
+        if (context === 'new') {
+          // if new testimony create new record in db
+          prismaNewHandler(content, pathFile);
+        } else if (context === 'update') {
+          prismaUpdateHandler(content, pathFile);
+        }
       }
-    } catch (error) {
-      console.log(error);
-      return res.status(500).send({ message: 'Upload Error' + error });
-    }
+    });
+    res.status(200).json({ message: 'File Uploaded Successfully' });
   };
 
-  //TODO: figure out how to destructure the formData from the frontend and pass the ID to update and delete handlers,
-  // update if logic where possible
   if (req.method === 'POST') {
     handleTestimony('new');
   } else if (req.method === 'PUT') {
-    // let context = 'update';
+    //TODO: update logic
     console.log('update');
   } else if (req.method === 'DELETE') {
+    //TODO: delete logic
     console.log('delete');
   } else {
     return res.status(400).json('Unable to update Testimony');
