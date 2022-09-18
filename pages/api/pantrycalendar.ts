@@ -27,7 +27,6 @@ export default async function handler(
           doc: pathFile,
         },
       });
-      res.status(200).json({ message: 'File Uploaded Successfully' });
     } catch (error) {
       return res
         .status(500)
@@ -36,31 +35,26 @@ export default async function handler(
   };
 
   const addPDF = async () => {
-    try {
-      const options = {
-        uploadDir: './uploads',
-      };
+    const options = {
+      uploadDir: './uploads',
+      keepExtensions: true,
+    };
 
-      // parse incoming document and return filepath to pass on to prismaHandler
-      const form = new formidable.IncomingForm(options);
-      let pathFile = '';
-      await new Promise(function (resolve, reject) {
-        form.parse(req, (error, field, file) => {
-          if (error) {
-            res.status(500).json({ message: 'Error parsing file' });
-            return reject(error);
-          }
-          const path: any = file[Object.keys(file)[0]];
-          let filepath = path.filepath;
-          pathFile = filepath;
-          resolve({ file, field });
-        });
-      });
-      prismaHandler(pathFile);
-    } catch (error) {
-      console.log(error);
-      return res.status(500).send('Upload Error' + error);
-    }
+    // parse incoming document and return filepath to pass on to prismaHandler
+    const form = new formidable.IncomingForm(options);
+    let pathFile = '';
+
+    form.parse(req, (error, file) => {
+      if (error) {
+        res.status(500).json({ message: 'Error parsing file' + error });
+      } else {
+        const path: any = file[Object.keys(file)[0]];
+        let filepath = path.filepath;
+        pathFile = filepath;
+        prismaHandler(pathFile);
+      }
+    });
+    res.status(200).json({ message: 'File Uploaded Successfully' });
   };
 
   if (req.method === 'POST') {

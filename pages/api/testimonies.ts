@@ -27,7 +27,6 @@ export default async function handler(
           doc: pathFile,
         },
       });
-      // return res.status(200).json({ message: 'File Uploaded Successfully' });
     } catch (error) {
       return res
         .status(500)
