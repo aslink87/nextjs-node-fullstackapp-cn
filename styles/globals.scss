@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Set Font Face */
+@font-face {
+  font-family: Inter-Regular;
+  font-style: normal;
+  src: url("../public/fonts/Inter-Regular.otf");
+}
+
+@font-face {
+  font-family: Inter-Bold;
+  font-style: bold;
+  src: url("../public/fonts/Inter-SemiBold.otf");
+}
+
+@font-face {
+  font-family: Inter-Italic;
+  font-style: italic;
+  src: url("../public/fonts/Inter-Italic.otf");
+}
+
+body {
+  font-family: Inter-Regular;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1.2em;
+  line-height: 1.5;
+}
+
+/* Extra Font Faces that are Ready to use */
+
+  // font-family: Inter-Black;
+  // src: url("../public/fonts/Inter-Black.otf");
+  //
+  // font-family: Inter-BoldItalic;
+  // src: url("../public/fonts/Inter-BoldItalic.otf");
+  //
+  // font-family: Inter-BlackItalic;
+  // src: url("../public/fonts/Inter-BlackItalic.otf");
+  //
+  // font-family: Inter-ExtraBold;
+  // src: url("../public/fonts/Inter-ExtraBold.otf");
+  //
+  // font-family: Inter-ExtraBoldItalic;
+  // src: url("../public/fonts/Inter-ExtraBoldItalic.otf");
+  //
+  // font-family: Inter-Medium;
+  // src: url("../public/fonts/Inter-Medium.otf");
+  //
+  // font-family: Inter-MediumItalic;
+  // src: url("../public/fonts/Inter-MediumItalic.otf");
+  //
+  // font-family: Inter-SemiBold;
+  // src: url("../public/fonts/Inter-SemiBold.otf");
+  //
+  // font-family: Inter-SemiBoldItalic;
+  // src: url("../public/fonts/Inter-SemiBoldItalic.otf");
+
+/* GLOBAL RESETS */
+/* Box sizing rules */
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  text-decoration: none;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+
+/* Set core root defaults */
+body html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
+body ul {
+  list-style-type: none;
+}
+
+body ::after {
+  box-sizing: border-box;
+}
+
+/* Make images easier to work with */
+body img,
+body picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+body input,
+body button,
+body textarea,
+body select {
+  font: inherit;
+}
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -61,7 +61,7 @@ const NavigationBar: React.FC<INavigation> = ({ ...headerProps }) => {
         </div>
         <div className={styles.spacer} />
         <div className={styles.branding}>
-          <h1>Christian</h1>
+          <h1 className='text-gray-500'>Christian</h1>
           <h1 className={styles.brandingSecondary}>Neighbors</h1>
         </div>
         <div className={styles.spacer} />

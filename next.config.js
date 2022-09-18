@@ -17,6 +17,8 @@ module.exports = withBundleAnalyzer(nextConfig);
 module.exports = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
-    prependData: `@import "variables.module.scss";`,
+    prependData: `
+      @import "variables.module.scss";
+    `,
   },
 };
