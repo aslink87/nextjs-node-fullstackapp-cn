@@ -1,7 +1,5 @@
-@import '../../styles/variables.module.scss';
-
 .nav {
-  padding: 0 1em;
+  padding: 0 3em;
   width: 100%;
   position: fixed;
   display: -webkit-flex;
@@ -18,48 +16,148 @@
     text-decoration: none;
     color: $dark-blue;
   }
+
+  @include xs {
+    padding: 0 1em;
+  }
+
+  @include sm {
+    padding: 0 1em;
+  }
+}
+
+.donateContainerMobile {
+  display: none;
+  justify-content: flex-start;
+  height: 100%;
+
+  @include xs {
+    display: flex;
+    width: 30%;
+  }
+
+  @include sm {
+    display: flex;
+    width: 30%;
+  }
+
+}
+
+.donate {
+  @include btn-primary;
+  background: $dark-blue;
+  margin: auto;
+  height: 30px;
+  font-family: Inter-Bold;
+  box-shadow: none;
+
+  &:hover {
+    box-shadow: none;
+  }
+
+  a {
+    margin: auto;
+
+    p {
+      color: $white;
+      font-size: 14px
+    }
+  }
+}
+
+.donateContainer {
+  display: none;
+  justify-content: flex-start;
+  height: 100%;
+
+  @include lg {
+    display: inline-flex;
+  }
+
+  @include xl {
+    display: inline-flex;
+  }
 }
 
 .logo {
-  width: 70px;
-  height: 4rem;
-  margin: auto 0;
-}
+  display: flex;
+  justify-content: flex-start;
 
-.spacer {
-  width: 8rem;
+  .image {
+    width: 70px;
+    position: relative;
+    top: -5px;
+  }
+
+  @include xs {
+    width: 40%;
+    justify-content: center;
+  }
+
+  @include sm {
+    width: 40%;
+    justify-content: center;
+  }
+
+  @include md {
+    width: 10%;
+    justify-content: flex-start;
+  }
 }
 
 .branding {
+  width: 50%;
+  display: flex;
+  justify-content: center;
   h1 {
-    font-family: Inter-Bold;
+    font-family: Inter-Regular;
     font-size: 1.8em;
+    font-weight: 600;
     display: inline-block;
   }
+
+  @include xs {
+    display: none;
+    width: 60%;
+  }
+
+  @include sm {
+    display: none;
+    width: 60%;
+  }
+
+  @include md {
+    justify-content: flex-end;
+  }
 }
+
 .brandingSecondary {
   margin-left: 0.3em;
   color: $yellow;
 }
+
 .navItems {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  width: 50%;
+  width: 60%;
+  height: 100%;
   justify-content: flex-end;
 
   li {
     box-sizing: border-box;
     text-align: center;
+    margin: auto 0;
 
     Link {
       &:hover {
         border-bottom: solid 2px $dark-blue;
+
       }
     }
 
     a {
-      margin: auto 1em;
+      margin: 0 0.3em 0 1em;
       font-size: 1.2rem;
 
       &:hover {
@@ -69,6 +167,152 @@
       &:active {
         border-bottom: solid 2px $dark-blue;
       }
+    }
+
+  }
+
+  @include xs {
+    display:none;
+  }
+
+  @include sm {
+    display:none;
+  }
+
+  @include md {
+    display:none;
+  }
+}
+
+.mobile {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  .mobileButton, .mobileButtonOpen {
+    display: flex;
+    height: 80%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    cursor: pointer;
+    padding: 0;
+
+    .mobileBar1, .mobileBar2{
+      width: 2rem;
+      height: 3px;
+      background: $dark-blue;
+    }
+
+    .mobileBar1 {
+      transition: transform 0.3s ease-out;
+    }
+
+    .mobileBar2 {
+      transition: transform 0.3s ease-out;
+    }
+  }
+
+  @include xs {
+    width: 30%;
+  }
+
+  @include sm {
+    width: 30%;
+  }
+
+  @include md {
+    width: 30%;
+  }
+
+  @include lg {
+    display:none;
+  }
+
+  @include xl {
+    display:none;
+  }
+
+  .mobileButtonOpen {
+    .mobileBar1 {
+      transform: rotate(45deg) translateY(6px) translateX(6px);
+    }
+
+    .mobileBar2 {
+      transform: rotate(-45deg) translateY(-7px) translateX(7px);
+    }
+  }
+}
+
+
+%dropdown {
+  display: block;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0rem;
+  margin-top: 3.1rem;
+  float: left;
+  background-color: $dark-blue;
+  border-radius: 5px;
+  min-width: 160px;
+  font-size: 1em;
+  box-shadow: 0px 0px 8px 0px $yellow;
+  text-align: left;
+  transition: opacity .1s .15s ease-in-out,
+    max-height .3s .2s;
+  pointer-events: none;
+
+  &>* {
+    pointer-events: auto;
+    color: $white;
+    margin: 0.2em 0 0.2em 1em;
+  }
+}
+
+.aboutDropdown {
+  @extend %dropdown;
+}
+
+.servicesDropdown {
+  @extend %dropdown;
+}
+
+.supportDropdown {
+  @extend %dropdown;
+}
+
+.about {
+  &:hover {
+    .aboutDropdown {
+      display: block;
+      opacity: 1;
+      transition-delay: 0s;
+      max-height: 500px;
+    }
+  }
+}
+
+.services {
+  &:hover {
+    .servicesDropdown {
+      display: block;
+      opacity: 1;
+      transition-delay: 0s;
+      max-height: 500px;
+    }
+  }
+}
+
+.support {
+  &:hover {
+    .supportDropdown {
+      display: block;
+      opacity: 1;
+      transition-delay: 0s;
+      max-height: 500px;
     }
   }
 }
