@@ -1,23 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './Navigation.module.scss';
 
-const MobileToggle: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+interface IMobileToggleProps {
+  // eslint-disable-next-line no-unused-vars
+  setMobileActive: (open: boolean) => void;
+}
 
-  const mobileToggle = isOpen ? styles.mobileButtonOpen : styles.mobileButton;
+const MobileToggle: React.FC<IMobileToggleProps> = ({ setMobileActive }) => {
   const onClickHandler = () => {
-    setIsOpen(!isOpen);
+    setMobileActive(true);
   };
 
   return (
     <div className={styles.mobile}>
       <button
-        className={mobileToggle}
+        className={styles.mobileButton}
         id="mobile-toggle"
         onClick={onClickHandler}
       >
-        <span className={styles.mobileBar1} />
-        <span className={styles.mobileBar2} />
+        <span className={styles.mobileBar} />
+        <span className={styles.mobileBar} />
+        <span className={styles.mobileBar} />
       </button>
     </div>
   );

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import MobileToggle from './MobileToggle';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 import logo from '../../public/logo_a.png';
 import styles from './Navigation.module.scss';
@@ -12,30 +12,32 @@ import styles from './Navigation.module.scss';
 export interface INavigation extends React.ComponentPropsWithoutRef<'header'> { }
 
 const NavigationBar: React.FC<INavigation> = ({ ...headerProps }) => {
+  const [mobileActive, setMobileActive] = useState(false);
+
   const aboutDropdown = (
     <div className={styles.aboutDropdown}>
       <p>item 1</p>
-      <p>item 1</p>
-      <p>item 1</p>
-      <p>item 1</p>
+      <p>item 2</p>
+      <p>item 3</p>
+      <p>item 4</p>
     </div>
   );
 
   const servicesDropdown = (
     <div className={styles.servicesDropdown}>
       <p>item 1</p>
-      <p>item 1</p>
-      <p>item 1</p>
-      <p>item 1</p>
+      <p>item 2</p>
+      <p>item 3</p>
+      <p>item 4</p>
     </div>
   );
 
   const supportDropdown = (
     <div className={styles.supportDropdown}>
       <p>item 1</p>
-      <p>item 1</p>
-      <p>item 1</p>
-      <p>item 1</p>
+      <p>item 2</p>
+      <p>item 3</p>
+      <p>item 4</p>
     </div>
   );
 
@@ -46,6 +48,7 @@ const NavigationBar: React.FC<INavigation> = ({ ...headerProps }) => {
       class: 'about',
       auth: false,
       mobile: true,
+      mobileOnly: false,
       dropdown: aboutDropdown,
     },
     {
@@ -54,6 +57,7 @@ const NavigationBar: React.FC<INavigation> = ({ ...headerProps }) => {
       class: 'services',
       auth: false,
       mobile: true,
+      mobileOnly: false,
       dropdown: servicesDropdown,
     },
     {
@@ -62,6 +66,7 @@ const NavigationBar: React.FC<INavigation> = ({ ...headerProps }) => {
       class: 'support',
       auth: false,
       mobile: true,
+      mobileOnly: false,
       dropdown: supportDropdown,
     },
     {
@@ -70,20 +75,61 @@ const NavigationBar: React.FC<INavigation> = ({ ...headerProps }) => {
       class: 'blog',
       auth: false,
       mobile: true,
+      mobileOnly: false,
     },
     {
       name: 'Admin Panel',
       path: '/admin',
       class: 'admin',
       auth: true,
-      mobile: true,
+      mobile: false,
+    },
+    {
+      name: 'Calendar',
+      path: '/calendar',
+      class: 'calendar',
+      auth: false,
+      mobileOnly: true,
+    },
+    {
+      name: 'FAQ',
+      path: '/faq',
+      class: 'faq',
+      auth: false,
+      mobileOnly: true,
+    },
+    {
+      name: 'Church Partners',
+      path: '/partners',
+      class: 'partners',
+      auth: false,
+      mobileOnly: true,
     },
   ];
 
   const isAuth = false;
-  // const arrowDown = (
-  //   <FontAwesomeIcon icon={faArrowDown} className={styles.arrowDown} />
-  // );
+
+  useEffect(() => {
+    if (mobileActive) {
+      document
+        .getElementById('sidedrawer')
+        ?.classList.replace('sidedrawer', 'sidedrawerActive');
+    } else {
+      document
+        .getElementById('sidedrawer')
+        ?.classList.replace('sidedrawerActive', 'sidedrawer');
+    }
+  }, [mobileActive]);
+
+  const onMobileActiveHandler = (mobileToggle: boolean) => {
+    setMobileActive(mobileToggle);
+  };
+
+  const xmark = (
+    <button onClick={() => onMobileActiveHandler(!mobileActive)}>
+      <FontAwesomeIcon icon={faXmark} className={styles.xmark} size="3x" />
+    </button>
+  );
 
   /* eslint-disable prettier/prettier */
   return (
@@ -97,15 +143,15 @@ const NavigationBar: React.FC<INavigation> = ({ ...headerProps }) => {
           </h1>
         </div>
         <div className={styles.logo}>
-          <Link href="/">
-            <div className={styles.image}>
+          <div className={styles.image}>
+            <Link href="/" passHref>
               <Image
                 src={logo}
                 layout="responsive"
                 alt="CN Logo"
               />
-            </div>
-          </Link>
+            </Link>
+          </div>
         </div>
         <div className={styles.branding}>
           <h1>Christian</h1>
@@ -120,13 +166,15 @@ const NavigationBar: React.FC<INavigation> = ({ ...headerProps }) => {
             </h1>
           </div>
           {isAuth
-            ? navLinks.map((link) => (
-              <li key={link.name}>
-                <Link href={link.path}>{link.name}</Link>
-              </li>
-            ))
+            ? navLinks
+              .filter((link) => !link.mobileOnly)
+              .map((link) => (
+                <li key={link.name}>
+                  <Link href={link.path}>{link.name}</Link>
+                </li>
+              ))
             : navLinks
-              .filter((link) => link.auth === isAuth)
+              .filter((link) => link.auth === isAuth && !link.mobileOnly)
               .map((link) => (
                 <li key={link.name} className={styles[link.class]}>
                   <>
@@ -136,9 +184,28 @@ const NavigationBar: React.FC<INavigation> = ({ ...headerProps }) => {
                 </li>
               ))}
         </ul>
-        <MobileToggle />
+        <MobileToggle setMobileActive={onMobileActiveHandler} />
       </div>
-    </header>
+      {mobileActive ?
+        <div className={`${styles.sidedrawer} ${mobileActive ? styles.sidedrawerActive : ''}`} id='sidedrawer'>
+          <div className={styles.drawerToggle}>
+            {xmark}
+          </div>
+          {
+            navLinks
+              .filter((link) => link.mobileOnly || link.mobile)
+              .map((link) => (
+                <li key={link.name} className={styles[link.class + 'Mobile']}>
+                  <>
+                    <Link href={link.path}><h1>{link.name}</h1></Link>
+                  </>
+                </li>
+              ))
+          }
+        </div>
+        : null
+      }
+    </header >
   );
 };
 

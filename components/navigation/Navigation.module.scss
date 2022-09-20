@@ -40,7 +40,6 @@
     display: flex;
     width: 30%;
   }
-
 }
 
 .donate {
@@ -66,17 +65,9 @@
 }
 
 .donateContainer {
-  display: none;
+  display: inline-flex;
   justify-content: flex-start;
   height: 100%;
-
-  @include lg {
-    display: inline-flex;
-  }
-
-  @include xl {
-    display: inline-flex;
-  }
 }
 
 .logo {
@@ -87,6 +78,7 @@
     width: 70px;
     position: relative;
     top: -5px;
+    cursor: pointer;
   }
 
   @include xs {
@@ -119,15 +111,24 @@
   @include xs {
     display: none;
     width: 60%;
+    h1 {
+      font-size: 1.5em;
+    }
   }
 
   @include sm {
     display: none;
     width: 60%;
+    h1 {
+      font-size: 1.5em;
+    }
   }
 
   @include md {
     justify-content: flex-end;
+    h1 {
+      font-size: 1.5em;
+    }
   }
 }
 
@@ -187,61 +188,38 @@
 .mobile {
   width: 30%;
   height: 100%;
-  display: flex;
+  display: none;
   justify-content: flex-end;
   align-items: center;
 
-  .mobileButton, .mobileButtonOpen {
+  .mobileButton {
     display: flex;
-    height: 80%;
+    height: 60%;
     flex-direction: column;
     justify-content: space-evenly;
     cursor: pointer;
     padding: 0;
 
-    .mobileBar1, .mobileBar2{
+    .mobileBar {
       width: 2rem;
       height: 3px;
       background: $dark-blue;
     }
-
-    .mobileBar1 {
-      transition: transform 0.3s ease-out;
-    }
-
-    .mobileBar2 {
-      transition: transform 0.3s ease-out;
-    }
   }
 
   @include xs {
+    display: flex;
     width: 30%;
   }
 
   @include sm {
+    display: flex;
     width: 30%;
   }
 
   @include md {
+    display: flex;
     width: 30%;
-  }
-
-  @include lg {
-    display:none;
-  }
-
-  @include xl {
-    display:none;
-  }
-
-  .mobileButtonOpen {
-    .mobileBar1 {
-      transform: rotate(45deg) translateY(6px) translateX(6px);
-    }
-
-    .mobileBar2 {
-      transform: rotate(-45deg) translateY(-7px) translateX(7px);
-    }
   }
 }
 
@@ -315,4 +293,46 @@
       max-height: 500px;
     }
   }
+}
+
+.sidedrawer {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  padding: 2em 4em;
+  text-align: center;
+  list-style-type: none;
+  background-color: $light-blue;
+  z-index: 300;
+  left: -100%;
+
+  .drawerToggle {
+    color: $white;
+    right: -30px;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  h1 {
+    @include h1-primary;
+    font-size: 1.5rem;
+    line-height: 3em;
+  }
+}
+
+.sidedrawerActive {
+  -webkit-animation: slide 0.5s forwards;
+  -webkit-animation-delay: 2s;
+  animation: slide 0.5s forwards;
+  animation-delay: 0s;
+  overflow: scroll;
+}
+
+@-webkit-keyframes slide {
+    100% { left: 0; }
+}
+
+@keyframes slide {
+    100% { left: 0; }
 }
