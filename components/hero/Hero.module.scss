@@ -1,0 +1,48 @@
+.heroContainer {
+  background-color: rgba($light-blue, 0.9);
+  display: flex;
+  justify-content: center;
+  margin: 4em 0.5em 0 0.5em;
+  border-radius: 10px;
+  padding: 1em 0;
+
+  .heroItem {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+
+    .heroTitle {
+      width: 100%;
+      h1 {
+        @include h1-primary;
+      }
+
+    }
+
+    .heroContent {
+      width: 100%;
+      padding: 2em 0 0 0;
+    }
+
+    .heroLink {
+      width: 100%;
+      padding: 2em 0;
+      color: blue;
+    }
+
+    .heroVideo {
+      width: 100%;
+
+      @include md {
+        height: 240px;
+      }
+      @include lg {
+        height: 360px;
+      }
+      @include xl {
+        height: 360px;
+      }
+    }
+  }
+}

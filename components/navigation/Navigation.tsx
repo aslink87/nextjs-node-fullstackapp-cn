@@ -143,15 +143,15 @@ const NavigationBar: React.FC<INavigation> = ({ ...headerProps }) => {
           </h1>
         </div>
         <div className={styles.logo}>
-          <div className={styles.image}>
-            <Link href="/" passHref>
+          <Link href="/" passHref>
+            <div className={styles.image}>
               <Image
                 src={logo}
                 layout="responsive"
                 alt="CN Logo"
               />
-            </Link>
-          </div>
+            </div>
+          </Link>
         </div>
         <div className={styles.branding}>
           <h1>Christian</h1>
