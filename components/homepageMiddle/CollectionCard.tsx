@@ -16,7 +16,7 @@ interface ICollectionCardProps {
   buttonText: string;
 }
 
-const CollectionCard: React.FC<ICollectionCardProps> = () => {
+const CollectionCard: React.FC = () => {
   const cardProps: ICollectionCardProps[] = [
     {
       titleLeft: 'Food',
