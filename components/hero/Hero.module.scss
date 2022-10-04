@@ -1,16 +1,10 @@
 .heroContainer {
-  background-color: rgba($light-blue, 0.9);
-  display: flex;
-  justify-content: center;
-  margin: 0 0.5em;
-  border-radius: 10px;
-  padding: 1em 0;
+  @include component-container;
 
   .heroItem {
+    @include center;
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
-    text-align: center;
     max-width: 60em;
     padding: 0 2em;
 

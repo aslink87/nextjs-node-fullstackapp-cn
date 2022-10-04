@@ -1,8 +1,14 @@
+import AboutTop from 'components/aboutTop/AboutTop';
 import PrimaryLayout from '../components/layouts/primary/PrimaryLayout';
 import { NextPageWithLayout } from './page';
+import styles from '../styles/Home.module.scss';
 
 const About: NextPageWithLayout = () => {
-  return <h1 className="">Hello Mom</h1>;
+  return (
+    <section className={styles.home}>
+      <AboutTop />
+    </section>
+  );
 };
 
 export default About;

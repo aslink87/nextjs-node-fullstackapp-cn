@@ -107,3 +107,36 @@ $warning: red;
   line-height: 1.2em;
   font-family: Inter-Bold;
 }
+
+@mixin ul-primary {
+  background-color: $white;
+  border-radius: 10px;
+  padding: 10px;
+  width: 80%;
+  margin: auto;
+  list-style-type: none;
+}
+
+@mixin li-primary {
+  background: rgba($light-blue, 0.8);
+  border-radius: 5px;
+  margin: 5px;
+  padding: 10px;
+}
+
+@mixin component-container {
+  background-color: rgba($light-blue, 0.9);
+  display: flex;
+  justify-content: center;
+  margin: 0.5em;
+  border-radius: 10px;
+  padding: 1em 0;
+  min-height: 400px;
+}
+
+@mixin center {
+  justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+  text-align: center;
+}

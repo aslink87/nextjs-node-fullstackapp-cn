@@ -1,0 +1,43 @@
+.container {
+  @include component-container;
+  flex-direction: column;
+
+  .header {
+    @include center;
+    width: 100%;
+
+    h1 {
+      @include h1-primary;
+      margin-bottom: 1rem;
+      text-transform: capitalize;
+    }
+
+    h2 {
+      @include h2-primary;
+      color: $white;
+      margin: auto;
+      margin-bottom: 2em;
+      max-width: 50em;
+    }
+  }
+
+  .content {
+    @include center;
+    line-height: 2.3em;
+    width: 100%;
+
+    p {
+      max-width: 50em;
+      margin: 0 auto;
+    }
+
+    ul {
+      @include ul-primary;
+      margin-top: 2rem;
+    }
+
+    li {
+      @include li-primary;
+    }
+  }
+}
