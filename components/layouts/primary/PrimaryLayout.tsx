@@ -16,7 +16,7 @@ const PrimaryLayout: React.FC<IPrimaryLayout> = ({ children, ...divProps }) => {
       </Head>
       <NavigationBar />
       <div {...divProps} className={styles.main}>
-        <main className="bg-cn-blue/60 w-full h-screen">{children}</main>
+        <main className={styles.mainContainer}>{children}</main>
       </div>
     </>
   );

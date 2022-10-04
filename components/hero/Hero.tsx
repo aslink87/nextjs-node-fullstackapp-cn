@@ -25,7 +25,10 @@ const Hero: React.FC<IHeroProps> = ({ news }) => {
     <section className={styles.heroContainer}>
       <div className={styles.heroItem}>
         <span className={styles.heroTitle}>
-          <h1>{news.title}</h1>
+          <h1>Our Latest News</h1>
+        </span>
+        <span className={styles.heroSubTitle}>
+          <h2>{news.title}</h2>
         </span>
         <div className={styles.heroContent}>
           <p>{news.content}</p>

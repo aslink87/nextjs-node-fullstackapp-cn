@@ -11,13 +11,26 @@
     justify-content: center;
     flex-wrap: wrap;
     text-align: center;
+    max-width: 60em;
+    padding: 0 2em;
 
     .heroTitle {
       width: 100%;
       h1 {
         @include h1-primary;
-      }
 
+        @include xs {
+          font-size: 32px;
+        }
+      }
+    }
+
+    .heroSubTitle {
+      width: 100%;
+      margin-top: 1em;
+      h2 {
+        @include h2-primary;
+      }
     }
 
     .heroContent {
