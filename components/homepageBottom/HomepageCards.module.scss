@@ -1,0 +1,86 @@
+.homepageCards {
+  background-color: rgba($light-blue, 0.9);
+  display: flex;
+  justify-content: center;
+  margin: 0 0.5em;
+  border-radius: 10px;
+
+  .cardsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    -webkit-align-items: center;
+    flex-wrap: wrap;
+    padding: 2em 0;
+    column-gap: 1em;
+
+    .cardElement {
+      width: 300px;
+      height: 300px;
+      margin: 0.5em 0;
+
+      &:hover {
+        .cardFront {
+          opacity: 0;
+          transition: opacity .05s .2s ease-out;
+        }
+
+        .cardBack {
+          transform: rotateY(0)
+        }
+      }
+
+      .cardFront {
+        position: absolute;
+        background: rgba($white, 1);
+        border-radius: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        -webkit-align-items: center;
+        width: 300px;
+        height: 300px;
+        color: $dark-blue;
+        opacity: 1;
+
+        .icon {
+          margin-bottom: 15px;
+        }
+      }
+
+      .cardBack {
+        background: rgba($dark-blue, 0.7);
+        position: absolute;
+        border-radius: 40px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        -webkit-align-items: center;
+        padding: 20px;
+        box-sizing: border-box;
+        width: 300px;
+        height: 300px;
+        transition: 0.5s;
+        box-shadow: 0px 5px 10px rgba($white, 0.9);
+        transform: rotateY(90deg);
+
+        p {
+          font-size: 14px;
+          color: $white;
+        }
+
+        a {
+          margin: 15px 0 0;
+          padding: 5px;
+          @include btn-primary;
+          background-color: $white;
+          color: $dark-blue;
+        }
+      }
+    }
+  }
+}
