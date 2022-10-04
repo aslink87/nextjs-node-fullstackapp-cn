@@ -4,6 +4,7 @@ import styles from '../styles/Home.module.scss';
 import Hero from 'components/hero/Hero';
 import prisma from '../lib/prisma';
 import HomepageCollection from 'components/homepageMiddle/HomepageCollection';
+import HomepageCards from 'components/homepageBottom/HomepageCards';
 
 interface IHomeProps {
   news: {
@@ -19,6 +20,7 @@ const Home: NextPageWithLayout<IHomeProps> = ({ news }) => {
     <section className={styles.home}>
       <Hero news={news} />
       <HomepageCollection />
+      <HomepageCards />
     </section>
   );
 };
