@@ -1,0 +1,81 @@
+.container {
+  @include component-container;
+  @include center;
+  flex-direction: column;
+  padding: 2rem 0;
+
+  .content {
+    @include center;
+
+    h2{
+      @include h2-primary;
+      color: $white;
+    }
+
+    .gridContainer {
+      @include center;
+      width: 90%;
+      margin: 2rem auto;
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 33% 33% 33%;
+      grid-template-rows: repeat(2, [row] auto);
+
+      @include xs {
+        grid-template-columns: 100%;
+      }
+
+      @include sm {
+        grid-template-columns: 50% 50%;
+      }
+
+      .gridElement {
+        background: rgba($dark-blue, 0.7);
+        color: $white;
+        border-radius: 10px;
+        padding: 20px;
+        min-height: 100px;
+        display: flex;
+
+        &:nth-child(even) {
+          background: rgba($white, 0.7);
+          color: $dark-blue;
+        }
+
+        p {
+          margin: auto;
+        }
+
+        @include xs {
+          min-height: 100px;
+
+          p {
+            width: 300px;
+          }
+        }
+
+        @include sm {
+          min-height: 120px;
+
+          p {
+            width: 200px;
+          }
+        }
+
+        @include lg {
+          min-height: 130px;
+
+          p {
+            width: 200px;
+          }
+        }
+
+        @include xl {
+          p {
+            width: 300px;
+          }
+        }
+      }
+    }
+  }
+}

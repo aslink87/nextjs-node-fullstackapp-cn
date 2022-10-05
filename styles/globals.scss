@@ -90,6 +90,7 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   box-sizing: border-box;
+  overflow: scroll;
 }
 
 body ul {
@@ -133,4 +134,10 @@ a:not([class]) {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Set max width for text elements */
+h2, p {
+  max-width: 50em;
+  margin: auto;
 }

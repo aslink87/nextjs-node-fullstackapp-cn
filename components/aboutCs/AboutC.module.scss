@@ -1,0 +1,24 @@
+.container {
+  @include component-container;
+  background-color: rgba($white, 0.9);
+  flex-direction: column;
+  @include center;
+  padding-bottom: 2em;
+  padding: 0 1rem 1rem 1rem;
+
+  h1 {
+    @include h1-primary;
+    @include center;
+    color: $dark-blue;
+  }
+
+  h2 {
+    @include h2-primary;
+    color: $dark-blue;
+    margin: 1.5em 0 1em 0;
+  }
+
+  p {
+    line-height: 1.8em;
+  }
+}
