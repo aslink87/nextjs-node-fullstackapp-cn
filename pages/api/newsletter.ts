@@ -28,6 +28,7 @@ export default async function handler(
           title: content,
           doc: pathFile,
           date: new Date().toISOString().split('T')[0],
+          index: 100,
         },
       });
     } catch (error) {

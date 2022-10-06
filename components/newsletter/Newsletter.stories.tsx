@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Newsletter from './Newsletter';
-import { INewsletterProps } from '../../pages/newsletter';
+import { INewslettersData } from '../../pages/newsletter';
 import { mockNewsletterProps } from './Newsletter.mocks';
 
 export default {
@@ -20,4 +20,4 @@ export const Base = Template.bind({});
 
 Base.args = {
   ...mockNewsletterProps.base,
-} as INewsletterProps;
+} as INewslettersData;
