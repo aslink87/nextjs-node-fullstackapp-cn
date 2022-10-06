@@ -4,6 +4,7 @@ import { NextPageWithLayout } from './page';
 import styles from '../styles/Home.module.scss';
 import AboutC from 'components/aboutCs/AboutC';
 import AboutGrid from 'components/aboutGrid/AboutGrid';
+import AboutStaff from 'components/aboutStaff/AboutStaff';
 
 const About: NextPageWithLayout = () => {
   return (
@@ -11,6 +12,7 @@ const About: NextPageWithLayout = () => {
       <AboutTop />
       <AboutC />
       <AboutGrid />
+      <AboutStaff />
     </section>
   );
 };

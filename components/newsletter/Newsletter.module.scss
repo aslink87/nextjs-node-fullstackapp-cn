@@ -1,0 +1,8 @@
+.container {
+  @include component-container;
+  @include center;
+
+  h2 {
+    @include h1-primary;
+  }
+}

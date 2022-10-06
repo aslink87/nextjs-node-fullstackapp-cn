@@ -71,6 +71,8 @@
         }
 
         @include xl {
+          min-height: 130px;
+
           p {
             width: 300px;
           }

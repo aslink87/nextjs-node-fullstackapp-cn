@@ -1,0 +1,66 @@
+.container {
+  @include component-container;
+  background-color: rgba($white, 0.9);
+  flex-direction: column;
+  @include center;
+
+  h1 {
+    @include h1-primary;
+    @include center;
+    color: $dark-blue;
+  }
+
+  .flexContainer {
+    @include center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 90%;
+    gap: 30px;
+
+    .flexElement {
+      width: 275px;
+      height: 500px;
+      border-radius: 20px;
+      background-color: rgba($dark-blue, 0.9);
+      padding-bottom: 10px;
+
+      img {
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+      }
+
+      .lowerflex {
+        display: flex;
+        height: 225px;
+
+        .lowerflexContent {
+          margin: auto;
+          padding: 0 15px;
+
+            h2 {
+              @include h2-primary;
+              color: $white;
+            }
+
+            .subheading {
+              font-size: 14px;
+              padding: 5px 0;
+              text-decoration: underline;
+            }
+
+            p, a {
+              font-size: 14px;
+              color: white;
+              line-height: 1.5em;
+            }
+
+            a {
+              text-decoration: underline;
+            }
+        }
+      }
+
+    }
+  }
+}
