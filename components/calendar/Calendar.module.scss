@@ -1,0 +1,56 @@
+.container {
+  @include component-container;
+  display: flex;
+  flex-wrap: wrap;
+
+  h1 {
+    @include h1-primary;
+    margin: auto;
+  }
+
+  .calendarHead {
+    width: 90%;
+    @include center;
+
+    h2 {
+      @include h2-primary;
+      color: $white;
+      background: rgba($dark-blue, 0.7);
+      border-radius: 5px;
+      padding: 3px 0;
+    }
+
+    .calendarHeadNews {
+      h2 {
+        @include h2-primary;
+        color: $white;
+        margin: 1em auto;
+        background: none;
+      }
+
+      .calendarVideo {
+        margin-top: 1em;
+        width: 100%;
+
+        @include md {
+          height: 240px;
+        }
+        @include lg {
+          height: 360px;
+        }
+        @include xl {
+          height: 360px;
+        }
+      }
+    }
+
+    p {
+      max-width: 60em;
+      margin: 1em auto;
+    }
+
+    a {
+      color: blue;
+    }
+  }
+}

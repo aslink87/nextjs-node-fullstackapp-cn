@@ -17,6 +17,9 @@ const NavigationBar: React.FC<INavigation> = ({ ...headerProps }) => {
   const aboutDropdown = (
     <div className={styles.aboutDropdown}>
       <p>item 1</p>
+      <Link href={'./newsletter'}>
+        <a>Newsletters</a>
+      </Link>
       <p>item 2</p>
       <p>item 3</p>
       <p>item 4</p>
@@ -88,6 +91,13 @@ const NavigationBar: React.FC<INavigation> = ({ ...headerProps }) => {
       name: 'Calendar',
       path: '/calendar',
       class: 'calendar',
+      auth: false,
+      mobileOnly: true,
+    },
+    {
+      name: 'Newsletters',
+      path: '/newsletter',
+      class: 'newsletter',
       auth: false,
       mobileOnly: true,
     },

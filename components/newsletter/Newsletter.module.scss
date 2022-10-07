@@ -1,8 +1,61 @@
 .container {
   @include component-container;
   @include center;
+  display: flex;
+  flex-wrap: wrap;
 
-  h2 {
-    @include h1-primary;
+  .enewsHeader {
+    width: 100%;
+    h1 {
+      @include h1-primary;
+      @include center;
+    }
+  }
+
+  .enewsContainer {
+    @include center;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    h2 {
+      @include h2-primary;
+      margin: auto;
+      width: 100%;
+    }
+
+    .enewsFrame {
+      max-width: 60em;
+      width: 90%;
+      margin: 2rem auto;
+      height: 50em;
+
+      @include xs {
+        height: 25em;
+      }
+
+      @include sm {
+        height: 40em;
+      }
+    }
+  }
+
+  .newsletterContainer {
+    @include center;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    h2 {
+      @include h2-primary;
+      width: 100%;
+      margin: 1.5em auto 1em auto;
+    }
+
+    a {
+      width: 100%;
+      color: blue;
+      line-height: 1.8em;
+    }
   }
 }

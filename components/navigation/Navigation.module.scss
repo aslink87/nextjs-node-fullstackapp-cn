@@ -245,7 +245,7 @@
 
   &>* {
     pointer-events: auto;
-    color: $white;
+    color: $white !important;
     margin: 0.2em 0 0.2em 1em;
   }
 }

@@ -28,7 +28,7 @@ export default async function handler(
           title: content,
           doc: pathFile,
           date: new Date().toISOString().split('T')[0],
-          index: 100,
+          index: 2,
         },
       });
     } catch (error) {
@@ -39,7 +39,7 @@ export default async function handler(
   };
   const addNewsletter = async () => {
     const options = {
-      uploadDir: './uploads',
+      uploadDir: './public/uploads',
       keepExtensions: true,
     };
 
@@ -52,7 +52,7 @@ export default async function handler(
         res.status(500).json({ message: 'Error parsing file' + error });
       } else {
         const path: any = file[Object.keys(file)[0]];
-        let filepath = path.filepath;
+        let filepath = '/uploads/' + path.newFilename;
         pathFile = filepath;
         const content: string = fields[Object.keys(fields)[0]] as string;
 
