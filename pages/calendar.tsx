@@ -5,18 +5,24 @@ import CalendarComponent from '../components/calendar/Calendar';
 import styles from '../styles/Home.module.scss';
 
 export interface ICalendarProps {
-  calendarHead: {
+  calendarHead?: {
     title: string;
     content: string;
     link?: string;
     video?: string;
   };
+  supper?: {
+    doc: string;
+  };
 }
 
-const Calendar: NextPageWithLayout<ICalendarProps> = ({ calendarHead }) => {
+const Calendar: NextPageWithLayout<ICalendarProps> = ({
+  calendarHead,
+  supper,
+}) => {
   return (
     <section className={styles.home}>
-      <CalendarComponent calendarHead={calendarHead} />
+      <CalendarComponent calendarHead={calendarHead} supper={supper} />
     </section>
   );
 };
@@ -34,9 +40,16 @@ export async function getStaticProps() {
     },
   });
 
+  const supper = await prisma.suppers.findUnique({
+    where: {
+      index: 1,
+    },
+  });
+
   return {
     props: {
       calendarHead,
+      supper,
     },
     revalidate: 60,
   };

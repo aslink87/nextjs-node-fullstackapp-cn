@@ -15,7 +15,6 @@ export const config = {
 };
 
 export default async function handler(req: ISupperData, res: NextApiResponse) {
-  // prismaHandler updates DB object values including new filePath
   const prismaHandler = async (pathFile: string) => {
     try {
       await prisma.suppers.update({
@@ -24,7 +23,6 @@ export default async function handler(req: ISupperData, res: NextApiResponse) {
           doc: pathFile,
         },
       });
-      res.status(200).json({ message: 'File Uploaded Successfully' });
     } catch (error) {
       return res
         .status(500)
@@ -32,36 +30,33 @@ export default async function handler(req: ISupperData, res: NextApiResponse) {
     }
   };
 
-  const addNewsletter = async () => {
-    try {
-      const options = {
-        uploadDir: './uploads',
-      };
+  const addSupperImage = async () => {
+    const options = {
+      uploadDir: './public/uploads',
+      keepExtensions: true,
+    };
 
-      // parse incoming document and return filepath to pass on to prismaHandler
-      const form = new formidable.IncomingForm(options);
-      let pathFile = '';
-      await new Promise(function (resolve, reject) {
-        form.parse(req, (error, field, file) => {
-          if (error) {
-            res.status(500).json({ message: 'Error parsing file' });
-            return reject(error);
-          }
-          const path: any = file[Object.keys(file)[0]];
-          let filepath = path.filepath;
-          pathFile = filepath;
-          resolve({ file, field });
-        });
-      });
-      prismaHandler(pathFile);
-    } catch (error) {
-      console.log(error);
-      return res.status(500).send('Upload Error' + error);
-    }
+    // parse incoming document and return result and filepath to pass on to prismaHandler
+    const form = new formidable.IncomingForm(options);
+    let pathFile = '';
+
+    form.parse(req, (error, files, fields) => {
+      if (error) {
+        res.status(500).json({ message: 'Error parsing file' + error });
+      } else {
+        const path: any = fields[Object.keys(fields)[0]];
+        console.log('Path is: ', path.newFilename);
+        let filepath = '/uploads/' + path.newFilename;
+        pathFile = filepath;
+
+        prismaHandler(pathFile);
+      }
+    });
+    return res.status(200).json({ message: 'File Uploaded Successfully' });
   };
 
   if (req.method === 'POST') {
-    addNewsletter();
+    addSupperImage();
   } else {
     return res.status(400).json({ message: 'Unable to update Newsletters' });
   }

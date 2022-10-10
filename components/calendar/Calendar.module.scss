@@ -8,18 +8,26 @@
     margin: auto;
   }
 
+  h2 {
+    @include h2-primary;
+    color: $white;
+    background: rgba($dark-blue, 0.7);
+    border-radius: 5px;
+    padding: 3px 0;
+  }
+
+  p {
+    max-width: 60em;
+    margin: 1em auto;
+  }
+
+  a {
+    color: blue;
+  }
+
   .calendarHead {
     width: 90%;
     @include center;
-
-    h2 {
-      @include h2-primary;
-      color: $white;
-      background: rgba($dark-blue, 0.7);
-      border-radius: 5px;
-      padding: 3px 0;
-    }
-
     .calendarHeadNews {
       h2 {
         @include h2-primary;
@@ -29,7 +37,7 @@
       }
 
       .calendarVideo {
-        margin-top: 1em;
+        margin: 1.5em auto;
         width: 100%;
 
         @include md {
@@ -43,14 +51,42 @@
         }
       }
     }
+  }
 
-    p {
-      max-width: 60em;
+  .auction {
+    width: 90%;
+    @include center;
+  }
+
+  .christmas {
+    width: 90%;
+    @include center;
+  }
+
+  .suppers {
+    width: 90%;
+    @include center;
+
+    h3 {
+      @include h2-primary;
+      color: $white;
       margin: 1em auto;
+      background: none;
     }
 
-    a {
-      color: blue;
+    .image {
+      margin: auto;
+      height: 100%;
+      margin-bottom: 1em;
+
+      img {
+        border-radius: 10px;
+      }
     }
+  }
+
+  .path {
+    width: 90%;
+    @include center;
   }
 }
