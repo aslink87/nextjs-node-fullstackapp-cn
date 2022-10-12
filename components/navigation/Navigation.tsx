@@ -56,7 +56,7 @@ const NavigationBar: React.FC<INavigation> = ({ ...headerProps }) => {
     },
     {
       name: 'Services',
-      path: '/services',
+      path: '/assistance',
       class: 'services',
       auth: false,
       mobile: true,
