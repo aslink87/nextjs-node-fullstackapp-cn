@@ -16,22 +16,17 @@ const NavigationBar: React.FC<INavigation> = ({ ...headerProps }) => {
 
   const aboutDropdown = (
     <div className={styles.aboutDropdown}>
-      <p>item 1</p>
       <Link href={'./newsletter'}>
         <a>Newsletters</a>
       </Link>
-      <p>item 2</p>
-      <p>item 3</p>
-      <p>item 4</p>
     </div>
   );
 
   const servicesDropdown = (
     <div className={styles.servicesDropdown}>
-      <p>item 1</p>
-      <p>item 2</p>
-      <p>item 3</p>
-      <p>item 4</p>
+      <Link href={'./communityprograms'}>
+        <a>Local Programs</a>
+      </Link>
     </div>
   );
 
@@ -112,6 +107,13 @@ const NavigationBar: React.FC<INavigation> = ({ ...headerProps }) => {
       name: 'Church Partners',
       path: '/partners',
       class: 'partners',
+      auth: false,
+      mobileOnly: true,
+    },
+    {
+      name: 'Local Programs',
+      path: '/communityprograms',
+      class: 'programs',
       auth: false,
       mobileOnly: true,
     },
