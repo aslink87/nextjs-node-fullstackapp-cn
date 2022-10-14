@@ -3,7 +3,7 @@ import Head from 'next/head';
 import NavigationBar from '../../navigation/Navigation';
 
 import styles from './PrimaryLayout.module.scss';
-import Footer from 'components/footer/Footer';
+import Footer from '../../footer/Footer';
 
 export interface IPrimaryLayout extends React.ComponentPropsWithoutRef<'div'> {
   justify?: 'items-center' | 'items-start';

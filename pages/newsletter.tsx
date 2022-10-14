@@ -2,7 +2,7 @@ import PrimaryLayout from '../components/layouts/primary/PrimaryLayout';
 import { NextPageWithLayout } from './page';
 import prisma from '../lib/prisma';
 import styles from '../styles/Home.module.scss';
-import Newsletter from 'components/newsletter/Newsletter';
+import Newsletter from '../components/newsletter/Newsletter';
 
 export interface INewsletterProps {
   date: string;
@@ -17,7 +17,7 @@ export interface INewslettersData {
 
 const Newsletters: NextPageWithLayout<INewslettersData> = ({ newsletters }) => {
   return (
-    <section className={styles.home}>
+    <section className={styles.home} data-testid="newsletter-page">
       <Newsletter newsletters={newsletters} />
     </section>
   );

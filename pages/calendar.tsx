@@ -21,7 +21,7 @@ const Calendar: NextPageWithLayout<ICalendarProps> = ({
   supper,
 }) => {
   return (
-    <section className={styles.home}>
+    <section className={styles.home} data-testid="calendar-page">
       <CalendarComponent calendarHead={calendarHead} supper={supper} />
     </section>
   );

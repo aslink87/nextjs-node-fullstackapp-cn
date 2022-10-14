@@ -108,7 +108,7 @@ const AboutStaff: React.FC = () => {
   };
 
   return (
-    <section className={styles.container}>
+    <section className={styles.container} data-testid="aboutstaff-component">
       <h1>Meet the Team</h1>
       <div className={styles.flexContainer}>
         {staffData.map((person: IGridElement) => (

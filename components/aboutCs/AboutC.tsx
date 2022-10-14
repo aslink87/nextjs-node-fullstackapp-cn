@@ -3,7 +3,7 @@ import styles from './AboutC.module.scss';
 
 const AboutC: React.FC = () => {
   return (
-    <section className={styles.container}>
+    <section className={styles.container} data-testid="aboutc-component">
       <h1>Our Five C&apos;s</h1>
       <h2>Being Christian Neighbors</h2>
       <p>

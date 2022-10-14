@@ -3,7 +3,6 @@ import { screen } from '@testing-library/react';
 import { createRoot } from 'react-dom/client';
 import { act } from 'react-dom/test-utils';
 import Layout from '../components/layouts/primary/PrimaryLayout';
-import Navigation from '../components/navigation/Navigation';
 
 test('layout page renders', async () => {
   // arrange

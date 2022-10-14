@@ -56,7 +56,7 @@ const Education: React.FC = () => {
           <div className={styles.videoContainer}>
             <ReactPlayer
               className="playlistPlayer"
-              url="https://vimeo.com/showcase/7695266/"
+              url="https://vimeo.com/showcase/7323588/"
               width="100%"
               height="100%"
               controls={true}

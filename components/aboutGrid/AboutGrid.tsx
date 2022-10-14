@@ -51,7 +51,7 @@ const AboutGrid: React.FC = () => {
   };
 
   return (
-    <section className={styles.container}>
+    <section className={styles.container} data-testid="aboutgrid-component">
       <div className={styles.content}>
         <h2>{boardProps.title}</h2>
         <div className={styles.gridContainer}>

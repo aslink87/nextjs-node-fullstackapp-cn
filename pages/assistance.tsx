@@ -5,7 +5,7 @@ import AssistanceComponent from '../components/assistance/Assistance';
 
 const Assistance: NextPageWithLayout = () => {
   return (
-    <section className={styles.home}>
+    <section className={styles.home} data-testid="assistance-page">
       <AssistanceComponent />
     </section>
   );

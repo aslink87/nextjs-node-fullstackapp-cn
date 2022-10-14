@@ -3,7 +3,7 @@ import styles from './AboutTop.module.scss';
 
 const AboutTop: React.FC = () => {
   return (
-    <section className={styles.container}>
+    <section className={styles.container} data-testid="abouttop-component">
       <div className={styles.header}>
         <h1>Mission and Oversight</h1>
         <h2>

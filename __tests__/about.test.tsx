@@ -1,18 +1,18 @@
 import '@testing-library/jest-dom';
 import { screen } from '@testing-library/react';
+import About from '../pages/about';
 import { createRoot } from 'react-dom/client';
 import { act } from 'react-dom/test-utils';
-import Navigation from './Navigation';
 
-test('navigation component renders', async () => {
+test('about page renders', async () => {
   // arrange
-  const component = <Navigation />;
+  const page = <About />;
   const container = document.body.appendChild(document.createElement('div'));
-  act(() => createRoot(container).render(component));
+  act(() => createRoot(container).render(page));
 
   // act
-  await screen.findByTestId('nav');
+  await screen.findByTestId('about-page');
 
   // assert
-  expect(screen.getByTestId('nav')).toBeInTheDocument();
+  expect(screen.getByTestId('about-page')).toBeInTheDocument();
 });
