@@ -11,7 +11,6 @@ export interface IPrimaryLayout extends React.ComponentPropsWithoutRef<'div'> {
 
 const PrimaryLayout: React.FC<IPrimaryLayout> = ({ children, ...divProps }) => {
   const PUBLIC_URL = process.env.PUBLIC_URL;
-  console.log(PUBLIC_URL);
 
   return (
     <>
