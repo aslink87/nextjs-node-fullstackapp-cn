@@ -6,6 +6,7 @@
 
   h1 {
     @include h1-primary;
+    width: 100%;
 
     @include xs {
       font-size: 18px;

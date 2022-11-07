@@ -32,10 +32,9 @@ const NavigationBar: React.FC<INavigation> = ({ ...headerProps }) => {
 
   const supportDropdown = (
     <div className={styles.supportDropdown}>
-      <p>item 1</p>
-      <p>item 2</p>
-      <p>item 3</p>
-      <p>item 4</p>
+      <Link href={'./partners'}>
+        <a>Church Partners</a>
+      </Link>
     </div>
   );
 
