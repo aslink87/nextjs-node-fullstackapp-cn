@@ -3,6 +3,7 @@ import { NextPageWithLayout } from './page';
 import { IBlog } from '../lib/types';
 import prisma from '../lib/prisma';
 import styles from '../styles/Home.module.scss';
+import BlogComponent from 'components/blog/Blog';
 
 export interface IBlogProps {
   date: string;
@@ -16,7 +17,11 @@ export interface IBlogData {
 }
 
 const Blog: NextPageWithLayout<IBlogData> = ({ blogs }) => {
-  return <section className={styles.home} data-testid="blog-page"></section>;
+  return (
+    <section className={styles.home} data-testid="blog-page">
+      <BlogComponent blogs={blogs} />
+    </section>
+  );
 };
 
 export default Blog;
