@@ -26,10 +26,5 @@
 
   li {
     @include li-primary;
-    color: $white;
-  }
-
-  a {
-    color: blue;
   }
 }

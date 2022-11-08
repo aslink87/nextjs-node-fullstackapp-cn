@@ -165,8 +165,12 @@ const NavigationBar: React.FC<INavigation> = ({ ...headerProps }) => {
           </Link>
         </div>
         <div className={styles.branding}>
-          <h1>Christian</h1>
-          <h1 className={styles.brandingSecondary}>Neighbors</h1>
+          <Link href="/">
+            <a>
+              <h1>Christian</h1>
+              <h1 className={styles.brandingSecondary}>Neighbors</h1>
+            </a>
+          </Link>
         </div>
         <ul className={styles.navItems}>
           <div className={styles.donateContainer}>
@@ -208,7 +212,7 @@ const NavigationBar: React.FC<INavigation> = ({ ...headerProps }) => {
               .map((link) => (
                 <li key={link.name} className={styles[link.class + 'Mobile']}>
                   <>
-                    <Link href={link.path}><h1>{link.name}</h1></Link>
+                    <Link href={link.path}><h1 onClick={() => onMobileActiveHandler(!mobileActive)}>{link.name}</h1></Link>
                   </>
                 </li>
               ))

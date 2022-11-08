@@ -5,7 +5,6 @@ $white: white;
 $black: black;
 $warning: red;
 
-// from tailwind
 @mixin xs {
   @media (max-width: 639px) {
     h1 {
@@ -83,7 +82,6 @@ $warning: red;
   display: flex;
   cursor: pointer;
   user-select: none;
-  text-decoration: none;
   box-shadow: inset 1px 5px 5px rgba($color: $dark-blue, $alpha: 0.1);
 
   &:hover {
@@ -133,10 +131,12 @@ $warning: red;
 }
 
 @mixin li-primary {
-  background: rgba($light-blue, 0.8);
+  background: rgba($light-blue, 1);
   border-radius: 5px;
   margin: 5px;
   padding: 10px;
+  color: $black;
+  line-height: 1.8em;
 }
 
 @mixin component-container {

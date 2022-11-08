@@ -1,0 +1,15 @@
+import { IPantryCalendarData } from 'pages/pantryCalendar';
+
+const base: IPantryCalendarData = {
+  calendar: [
+    {
+      index: 0,
+      date: '2022-10-06',
+      doc: '/home/adam/Development/nextjs-cnwebsite/uploads/ed9a5211a2236f3396c86e702.pdf',
+    },
+  ],
+};
+
+export const mockPantryCalendarProps = {
+  base,
+};

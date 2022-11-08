@@ -4,7 +4,7 @@
   display: flex;
   flex-wrap: wrap;
 
-  .enewsHeader {
+  .calendarHeader {
     width: 100%;
     h1 {
       @include h1-primary;
@@ -12,7 +12,7 @@
     }
   }
 
-  .enewsContainer {
+  .calendarContainer {
     @include center;
     width: 100%;
     display: flex;
@@ -24,7 +24,7 @@
       width: 100%;
     }
 
-    .enewsFrame {
+    .calendarFrame {
       max-width: 60em;
       width: 90%;
       margin: 2rem auto;
@@ -37,24 +37,6 @@
       @include sm {
         height: 40em;
       }
-    }
-  }
-
-  .newsletterContainer {
-    @include center;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-
-    h2 {
-      @include h2-primary;
-      width: 100%;
-      margin: 1.5em auto 1em auto;
-    }
-
-    a {
-      width: 100%;
-      line-height: 1.8em;
     }
   }
 }

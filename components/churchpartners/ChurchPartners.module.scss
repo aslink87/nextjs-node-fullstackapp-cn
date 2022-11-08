@@ -26,10 +26,6 @@
     }
   }
 
-  a {
-    color: blue;
-  }
-
   .calendars {
     @include center;
     width: 100%;
@@ -54,7 +50,6 @@
 
     li {
       @include li-primary;
-      color: $white;
     }
   }
 

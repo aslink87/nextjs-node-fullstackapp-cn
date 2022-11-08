@@ -18,8 +18,8 @@ const Footer: React.FC = () => {
           <p>1-269-685-4178</p>
         </div>
         <div className={styles.footerCenter}>
+          <p>Christian Neighbors, &copy;2023</p>
           <div className={styles.icons}>
-            <p>Christian Neighbors, &copy;2023</p>
             <a
               href="https://www.facebook.com/ChristianNeighborsPlainwell/"
               target="_blank"

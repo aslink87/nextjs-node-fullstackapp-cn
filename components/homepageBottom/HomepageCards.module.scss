@@ -90,6 +90,7 @@
 
         @include xs {
           transform: rotateY(0);
+          height: 350px;
 
           p {
             font-size: 0.8em;
@@ -107,6 +108,10 @@
         @include md {
           transform: rotateY(0);
         }
+
+      }
+      @include xs {
+        height: 350px;
       }
     }
   }

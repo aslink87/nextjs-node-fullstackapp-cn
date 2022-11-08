@@ -141,3 +141,16 @@ h2, p {
   max-width: 50em;
   margin: auto;
 }
+
+/* Globally manage SVG sizes */
+svg {
+  max-width: 56px;
+}
+
+a {
+  text-decoration: underline;
+}
+
+p {
+  line-height: 1.8em;
+}

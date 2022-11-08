@@ -23,6 +23,7 @@
 
     p, a {
       font-size: 12px;
+      max-width: 100%;
     }
 
     @include xs {
@@ -56,9 +57,17 @@
     }
 
     .footerCenter {
+      @include center;
       width: 33%;
       text-align: center;
       color: $white;
+      background-color: $dark-blue;
+      display: flex;
+      flex-wrap: wrap;
+
+      p {
+        width: 100%;
+      }
 
       @include xs {
         width: 100%;
@@ -71,26 +80,18 @@
       }
 
       .icons {
-        margin: 2rem 0;
-        line-height: 2rem;
-        background-color: $dark-blue;
-        background-size: contain;
+        @include center;
+        display: flex;
+        gap: 1em;
+        width: 100%;
 
         a {
-          padding: 0rem;
-          margin-left: 0.5rem;
-          margin-right: 0.5rem;
-          color: $white;
           transition: all 0.5s ease-out;
+          width: 56px;
 
           &:hover {
             color: $yellow;
             transition: all 0.5s ease-out;
-          }
-
-          .fa-icon {
-            height: 1em;
-            color: $white;
           }
 
           @include xs {

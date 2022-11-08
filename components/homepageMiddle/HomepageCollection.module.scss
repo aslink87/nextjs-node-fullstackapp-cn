@@ -23,6 +23,7 @@
       width: 100%;
       margin-top: 1em;
       padding: 0 2em;
+
       h2 {
         max-width: 60em;
         width: 100%;
@@ -107,19 +108,22 @@
         border-top-right-radius: 10px;
       }
 
+      @include center;
       height: 100%;
       width: 100%;
       background-color: rgba($dark-blue, 0.8);
       display: flex;
       flex-wrap: wrap;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
       padding: 1em 0;
 
       .icon {
         color: $white;
         margin-bottom: 0.3em;
+      }
+
+      svg {
+        margin: auto;
       }
 
       h2 {
@@ -150,6 +154,10 @@
 
       button {
         @include btn-primary;
+
+        a {
+          text-decoration: none;
+        }
       }
     }
   }
