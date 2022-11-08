@@ -62,6 +62,14 @@
           }
         }
 
+        @include md {
+          min-height: 160px;
+
+          p {
+            width: 200px;
+          }
+        }
+
         @include lg {
           min-height: 130px;
 

@@ -210,9 +210,9 @@ const NavigationBar: React.FC<INavigation> = ({ ...headerProps }) => {
             navLinks
               .filter((link) => link.mobileOnly || link.mobile)
               .map((link) => (
-                <li key={link.name} className={styles[link.class + 'Mobile']}>
+                <li key={link.name}>
                   <>
-                    <Link href={link.path}><h1 onClick={() => onMobileActiveHandler(!mobileActive)}>{link.name}</h1></Link>
+                    <Link href={link.path}><h1 className={styles[link.class]} onClick={() => onMobileActiveHandler(!mobileActive)}>{link.name}</h1></Link>
                   </>
                 </li>
               ))

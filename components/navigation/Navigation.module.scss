@@ -317,8 +317,8 @@
 
   h1 {
     @include h1-primary;
-    font-size: 1.5rem;
-    line-height: 3em;
+    font-size: 1.5rem !important;
+    line-height: 2em;
   }
 }
 

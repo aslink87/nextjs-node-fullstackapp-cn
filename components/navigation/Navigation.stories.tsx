@@ -3,7 +3,7 @@ import { ComponentMeta } from '@storybook/react';
 import NavigationBar from './Navigation';
 
 export default {
-  title: 'component/Navigation',
+  title: 'components/Navigation',
   component: NavigationBar,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
 } as ComponentMeta<typeof NavigationBar>;
