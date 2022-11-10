@@ -1,9 +1,9 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import Link from 'next/link';
 
 import styles from './Footer.module.scss';
-import Link from 'next/link';
 
 const Footer: React.FC = () => {
   return (
@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
           <p>
             <strong>Fri:</strong> Closed
           </p>
-          <Link href="/login">
+          <Link href="/admin">
             <a>Staff Login</a>
           </Link>
         </div>

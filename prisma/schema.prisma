@@ -92,3 +92,10 @@ model testimonies {
   doc String
   content String
 }
+
+// Admins
+model admins {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  username String
+  password String
+}
